@@ -1,0 +1,32 @@
+Our Web Service
+1 Nov 2018
+
+Kyle Shannon
+Research Computing, Boise State University
+kyleshannon@boisestate.edu
+http://rcs.boisestate.edu
+
+* What is a web service
+- Make a request to a server
+- The server does work
+- A machine readable response written to the client
+
+* Our web service
+- Provide access to ebird data
+
+Request:
+
+	https://magic.boisestate.edu/api/ebird/?species=amke&when=2018-01-01&key=12faegbdw
+
+Response:
+
+	{
+		"spp": "AMKE",
+		"sex": "M"
+	},
+	{
+		"spp": "AMKE",
+		"sex": "F"
+	},
+	...
+
