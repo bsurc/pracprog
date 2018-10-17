@@ -132,7 +132,7 @@ project with other data.
 
 Research Computing will:
 - Build a server for the purpose of the class
-- Supply students with a USB disk image of all tools used for the class<sup>\*</sup>
+- Provide an instructor for eight weeks, 90 - 120 minutes for class time.
 
 The course will consist of X main processes:
 - Obtain a moderately large dataset related to the general research field
@@ -166,3 +166,4 @@ The course will cover the following topics:
 - Learn about different web encodings (csv, json, xml, binary, etc.)
 - Develop a client for web services
 - Develop a server for web services
+
