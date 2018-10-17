@@ -133,6 +133,7 @@ project with other data.
 Research Computing will:
 - Build a server for the purpose of the class
 - Provide an instructor for eight weeks, 90 - 120 minutes for class time.
+- Provide 'office hours' for ~60 minutes a week
 
 The course will consist of X main processes:
 - Obtain a moderately large dataset related to the general research field
