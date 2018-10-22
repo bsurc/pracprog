@@ -25,7 +25,7 @@ http://rcs.boisestate.edu
 .play -edit format.go /START_OMIT/,/END_OMIT/
 
 * CSV
-	species,sex
+	spp,sex
 	AMKE,F
 
 * JSON
@@ -52,3 +52,19 @@ http://rcs.boisestate.edu
 	SUBSPECIES COMMON NAME
 	SUBSPECIES SCIENTIFIC NAME
 	...
+
+* Data Structures
+- Basic Types
+- Aggregate Types
+- Values & Pointers
+
+* Basic Types
+- Integers
+- Floating Point
+- Strings
+
+* Integers
+- Unsigned and signed, different capacity
+- Arbitrary Precision
+
+.play sizeof.go /START_OMIT/,/END_OMIT/

@@ -7,12 +7,12 @@ kyleshannon@boisestate.edu
 http://rcs.boisestate.edu
 
 * Background
-- BSU lacks courses in practical programming
+- BSU may lack courses in practical programming
 - We are going to _attempt_ to remedy this
 - This is an experiment
 
 * Plan
-- Take ebird data and make it available to Raptor Research
+- Take ebird data and make it available to Raptor Research (and others)
 - 'Bolt on' tools specific to _your_ research (potentially)
 
 * Why
@@ -20,9 +20,10 @@ http://rcs.boisestate.edu
 - Use things we are _familiar_ with (websites, ebird data)
 - There is no scientific programming here
 - There is no specific language we have to use
-- There is at least some potential the final product may be useful
+- There is some potential the final product may be useful
 
 * Timeline
+- Inspect the data
 - Create a database that lives on a server
 - Populate the database, cleaning the data as needed
 - Write a very simple query service
@@ -40,7 +41,7 @@ http://rcs.boisestate.edu
 - Go over fundamental software engineering stuff as we go
 - Control flow, data structures, classes/structs/objects, testing, debugging, etc.
 - All in a language of your choice (you can even pick a new one!)
-- Kyle will fill holes that are needed for progress to move forward
+- Kyle will fill holes that are needed for progress to move forward (he'll use Go, like in the slides)
 
 * Step 1
 .play hello.go

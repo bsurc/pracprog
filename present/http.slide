@@ -51,6 +51,7 @@ https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
 
 - Scheme: `https`
 - Host: `boisestate.edu`
+- Port: `443`
 - Path: `/magic/place`
 - Query: `name=kyle&date=2018-01-01`
 

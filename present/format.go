@@ -17,8 +17,9 @@ func main() {
 	b.Species = "AMKE"
 	b.Sex = "F"
 
-	w := csv.NewWriter(os.Stdout)
 	// START_OMIT
+	w := csv.NewWriter(os.Stdout)
+	w.Write([]string{"spp", "sex"})
 	w.Write([]string{b.Species, b.Sex})
 	w.Flush()
 	json.NewEncoder(os.Stdout).Encode(b)
