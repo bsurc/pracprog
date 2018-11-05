@@ -8,6 +8,8 @@ implementing a well-defined project that is relatable to the researchers.
 
 ## Schedule
 
+Weekly schedule
+
 Week | Subject
 --------------
 1    | Computers, project definition, and our first program (web server)
