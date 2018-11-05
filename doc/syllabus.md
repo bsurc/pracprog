@@ -8,10 +8,8 @@ implementing a well-defined project that is relatable to the researchers.
 
 ## Schedule
 
-Weekly schedule
-
 Week | Subject
---------------
+-----|--------
 1    | Computers, project definition, and our first program (web server)
 2    | Importing eBird data into a relational database and writing queries
 3    | Defining and writing a web service and documenting our work
