@@ -36,8 +36,8 @@ TBD
 - Microsoft [VS Code](https://code.visualstudio.com/)
 
 ### Week 2
-- [eBird](ebird.org)
-- [SQLite](sqlite.org)
+- [eBird](https://ebird.org)
+- [SQLite](https://sqlite.org)
 
 ### Week 3
 - [URLs](https://en.wikipedia.org/wiki/URL)
