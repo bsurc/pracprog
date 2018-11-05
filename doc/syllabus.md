@@ -32,6 +32,7 @@ TBD
 ### Week 1
 - [The HTTP Protocol](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)
 - [RESTful APIs](https://en.wikipedia.org/wiki/Representational_state_transfer)
+- [GitHub](https://github.com)
 - [Go Programming Language](https://golang.org)
 - Microsoft [VS Code](https://code.visualstudio.com/)
 
