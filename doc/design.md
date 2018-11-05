@@ -1,4 +1,4 @@
-# Proposal: Raptor Research Practical Programming Seminar
+# Proposal: Practical Programming Seminar
 
 Author(s): Kyle Shannon <kyle@pobox.com>
 
@@ -136,7 +136,7 @@ Research Computing will:
 - Provide an instructor for eight weeks, 90 - 120 minutes for class time.
 - Provide 'office hours' for ~60 minutes a week
 
-The course will consist of X main processes:
+The course will consist of the following processes:
 - Obtain a moderately large dataset related to the general research field
 - Extract a workable subset of data for testing and programming
 - Create and populate a well-formed database with the data, checking the
@@ -144,7 +144,7 @@ The course will consist of X main processes:
 - Create a web service for accessing the dataset over a network
 - All students write tools to use the service (any language)
 - All students write a service on the server (any language)
-For the purpose of Raptor Research/Biology, the dataset will be the entire (up
+For the purpose of the Biology department, the dataset will be the entire (up
 to September 2018) eBird database.  The data is individual species sightings
 around the world since 2002.  This data may not directly apply to research, but
 obviously may have the potential to.
