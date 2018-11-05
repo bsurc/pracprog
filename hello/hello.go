@@ -10,6 +10,6 @@ func hello(name string) string {
 }
 
 func main() {
-	var s = "Hello, world!"
-	fmt.Println(s)
+	var s = "world!"
+	fmt.Println(hello(s))
 }
