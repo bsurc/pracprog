@@ -14,7 +14,7 @@ Week | Subject
 2    | Importing eBird data into a relational database and writing queries
 3    | Defining and writing a web service and documenting our work
 4    | Testing and refining our service
-5    | Adding more functionality to our service (query in time and space)
+5    | Adding more functionality to our service (query in time and space), and securing it
 6    | Accessing our web service externally (consuming)
 7    | Using our service in research
 8    | Reflection
@@ -47,6 +47,8 @@ TBD
 - [Software testing](https://en.wikipedia.org/wiki/Software_testing)
 
 ### Week 5
+- [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security)
+- [Web API Security](https://en.wikipedia.org/wiki/Web_API_security)
 
 ### Week 6
 
