@@ -1,33 +1,61 @@
 # BIOL 597 SPECIAL TOPICS: PRACTICAL PROGRAMMING SEMINAR
 
-## Short Desc
+- Spring 2019
+- Location: TBD
+- Meeting Time: TBD
+- Instructor: Kyle Shannon $Office, <kyleshannon@boisestate.edu>
+- Office Hours: By appointment
+
+## Coarse Goals & Description
+
 Programming is becoming a part of every day research in nearly every field.
 This course aims to provide practical programming experience to familiarize
 researchers with common software engineering concepts.  This is done by
 implementing a well-defined project that is relatable to the researchers.
 
-## Schedule
+## Course Learning Outcomes
 
-Week | Subject
------|--------
-1    | Computers, project definition, and our first program (web server)
-2    | Importing eBird data into a relational database and writing queries
-3    | Defining and writing a web service and documenting our work
-4    | Testing and refining our service
-5    | Adding more functionality to our service (query in time and space), and securing it
-6    | Accessing our web service externally (consuming)
-7    | Using our service in research
-8    | Reflection
+## Course Format
 
-## Assignments
+## Pre and Co-requesites
 
-TBD
+## Materials & Texts
 
-## Grading
+## Course Requirements
 
-TBD
+## Grading Information
 
-## Resources
+## Course Expectations
+
+## Student Conduct & Academic Integrity
+
+## Accommodations for Students with Disabilities
+
+Students with disabilities needing accommodations to fully participate in this
+class should contact the Educational Access Center (EAC). All accommodations
+must be approved through the EAC prior to being implemented.  To learn more
+about the accommodation process, visit the EAC’s website at
+https://eac.boisestate.edu/new-eac-students/.
+
+## Planning for Success
+
+## Tentative Course Calendar
+
+Week 1: Computers, project definition, and our first program (web server)
+
+Week 2: Importing eBird data into a relational database and writing queries
+
+Week 3: Defining and writing a web service and documenting our work
+
+Week 4: Testing and refining our service
+
+Week 5: Adding more functionality to our service (query in time and space), and securing it
+
+Week 6: Accessing our web service externally (consuming)
+
+Week 7: Using our service in research
+
+Week 8: Reflection
 
 ### Week 1
 - [The HTTP Protocol](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)
@@ -55,3 +83,5 @@ TBD
 ### Week 7
 
 ### Week 8
+
+
