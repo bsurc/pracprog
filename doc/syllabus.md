@@ -128,6 +128,7 @@ This section will be updated as the class progresses.
 - [RESTful APIs](https://en.wikipedia.org/wiki/Representational_state_transfer)
 - [GitHub](https://github.com)
 - [Go Programming Language](https://golang.org)
+  - [Installation instructions](https://golang.org/doc/install)
 - Microsoft [VS Code](https://code.visualstudio.com/)
 
 ### Week 2
