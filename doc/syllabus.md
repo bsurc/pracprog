@@ -131,6 +131,7 @@ This section will be updated as the class progresses.
   - [Installation instructions](https://golang.org/doc/install)
 - Microsoft [VS Code](https://code.visualstudio.com/)
   - [Go extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go)
+  - [SQLite extension](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite)
 
 ### Week 2
 - [eBird](https://ebird.org)
