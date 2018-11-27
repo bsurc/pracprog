@@ -130,6 +130,7 @@ This section will be updated as the class progresses.
 - [Go Programming Language](https://golang.org)
   - [Installation instructions](https://golang.org/doc/install)
 - Microsoft [VS Code](https://code.visualstudio.com/)
+  - [Go extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go)
 
 ### Week 2
 - [eBird](https://ebird.org)
