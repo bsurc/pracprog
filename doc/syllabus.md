@@ -26,6 +26,7 @@ engineering.  These include:
 
 - Project management (planning)
 - Source control (git)
+- Documentation/comments
 - Functions and testing
 - Finding answers on the web (and decoding them)
 - Changing software incrementally (without breaking it)
@@ -134,6 +135,7 @@ This section will be updated as the class progresses.
 
 ### Week 3
 - [URLs](https://en.wikipedia.org/wiki/URL)
+- [Github Markdown](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
 
 ### Week 4
 - [Software testing](https://en.wikipedia.org/wiki/Software_testing)
