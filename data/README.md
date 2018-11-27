@@ -11,7 +11,7 @@ eBird provides free access to the basic dataset for non-commercial use.  The
 citation for the bulk download is:
 
 	eBird Basic Dataset
-	Version: EBD\_relAug-2018.
+	Version: EBD_relAug-2018.
 	Cornell Lab of Ornithology, Ithaca, New York. May 2017.
 
 For other citations, see: https://ebird.org/science/citation
