@@ -123,6 +123,7 @@ Week 8: Reflection/Overview
 This section will be updated as the class progresses.
 
 ### Week 1
+- The [Go Playground](https://play.golang.org)
 - [The HTTP Protocol](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)
 - [RESTful APIs](https://en.wikipedia.org/wiki/Representational_state_transfer)
 - [GitHub](https://github.com)
