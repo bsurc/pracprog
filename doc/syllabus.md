@@ -1,6 +1,6 @@
 <!-- pandoc -f markdown -t latex syllabus.md -o syllabus.pdf -->
 
-# BIOL 597 SPECIAL TOPICS: PRACTICAL PROGRAMMING SEMINAR
+# BIOL 697 SPECIAL TOPICS: PRACTICAL PROGRAMMING SEMINAR
 
 - Spring 2019
 - Location: TBD
