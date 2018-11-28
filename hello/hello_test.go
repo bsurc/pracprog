@@ -9,7 +9,22 @@ import (
 )
 
 func TestHello(t *testing.T) {
-	if got, want := hello("kyle"), "Hello, kyle!"; got != want {
-		t.Errorf("hello failed, got: '%s', want: '%s'", got, want)
+	tests := []struct {
+		in, out string
+	}{
+		{
+			in:  "",
+			out: "",
+		},
+		{
+			in:  "kyle",
+			out: "Hello, kyle!",
+		},
+	}
+
+	for _, test := range tests {
+		if got, want := hello(test.in), test.out; got != want {
+			t.Errorf("hello failed, got: '%s', want: '%s'", got, want)
+		}
 	}
 }
