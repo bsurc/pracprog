@@ -9,7 +9,7 @@
 - Office Hours: By appointment
 
 This is a living document, the 'live' version is at
-https://github.com/bsurc/pracprog/blob/master/doc/syllabus.md
+<https://github.com/bsurc/pracprog/blob/master/doc/syllabus.md>
 
 ## Coarse Goals & Description
 
@@ -70,7 +70,7 @@ lab computers will have the required tools available.
 In order to create a safe space for learning, I expect all of us (peer mentors,
 students, and myself) to exhibit behavior that reflects Boise State's Statement
 of Shared
-Values(https://deanofstudents.boisestate.edu./statement-of-shared-values/) and
+Values(<https://deanofstudents.boisestate.edu./statement-of-shared-values/>) and
 is characterized by
 
 - Academic Excellence
@@ -83,7 +83,7 @@ is characterized by
 
 In addition, students in this course are expected to uphold standards outlined
 in the Boise State University Student Code of Conduct
-(https://deanofstudents.boisestate.edu/student-code-of-conduct/).  Any work
+(<https://deanofstudents.boisestate.edu/student-code-of-conduct/>).  Any work
 submitted by a student in this course for academic credit will be the students
 own work, or work of collaboration between one or more students.
 
@@ -93,7 +93,7 @@ Students with disabilities needing accommodations to fully participate in this
 class should contact the Educational Access Center (EAC). All accommodations
 must be approved through the EAC prior to being implemented.  To learn more
 about the accommodation process, visit the EAC’s website at
-https://eac.boisestate.edu/new-eac-students/.
+<https://eac.boisestate.edu/new-eac-students/>.
 
 ## Planning for Success
 
@@ -120,9 +120,31 @@ Week 8: Reflection/Overview
 
 ## Resources
 
+### Tools
+
+#### Version Control
+
+For tracking our software changes and issues, we'll use `git` and github.
+Students will need a github account.
+
+#### Integrated Development Environment
+
+For simplicity, we'll all use the same IDE, Microsoft VS Code.  It has plugins
+to support many languages (R, Python, Go, C/C++, etc.), and good integration with
+`git` and github.
+
+##### Extensions
+
+- [Go extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go)
+- [Github Issues](https://marketplace.visualstudio.com/items?itemName=ms-vscode.github-issues-prs)
+- [SQLite extension](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite)
+
+### Reading Materials
+
 This section will be updated as the class progresses.
 
-### Week 1
+#### Week 1
+
 - The [Go Playground](https://play.golang.org)
 - [The HTTP Protocol](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)
 - [RESTful APIs](https://en.wikipedia.org/wiki/Representational_state_transfer)
@@ -130,27 +152,28 @@ This section will be updated as the class progresses.
 - [Go Programming Language](https://golang.org)
   - [Installation instructions](https://golang.org/doc/install)
 - Microsoft [VS Code](https://code.visualstudio.com/)
-  - [Go extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go)
-  - [SQLite extension](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite)
 
-### Week 2
+#### Week 2
+
 - [eBird](https://ebird.org)
 - [SQLite](https://sqlite.org)
 
-### Week 3
+#### Week 3
+
 - [URLs](https://en.wikipedia.org/wiki/URL)
 - [Github Markdown](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
 
-### Week 4
+#### Week 4
+
 - [Software testing](https://en.wikipedia.org/wiki/Software_testing)
 
-### Week 5
+#### Week 5
+
 - [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security)
 - [Web API Security](https://en.wikipedia.org/wiki/Web_API_security)
 
-### Week 6
+#### Week 6
 
-### Week 7
+#### Week 7
 
-### Week 8
-
+#### Week 8
