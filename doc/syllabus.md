@@ -130,8 +130,8 @@ Students will need a github account.
 #### Integrated Development Environment
 
 For simplicity, we'll all use the same IDE, Microsoft VS Code.  It has plugins
-to support many languages (R, Python, Go, C/C++, etc.), and good integration with
-`git` and github.
+with varying support for many languages (R, Python, Go, C/C++, etc.), and good
+integration with `git` and github.
 
 ##### Extensions
 
