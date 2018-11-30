@@ -1,0 +1,34 @@
+How Computers Chat
+17 Feb 2018
+
+Kyle Shannon
+Practical Programming
+kyleshannon@boisestate.edu
+
+* HTTP GET
+
+- Client picks up a phone and makes a simple request to the server
+
+  > GET / HTTP/1.1
+  > Host: boisestate.edu
+  > User-Agent: curl/7.58.0
+  > Accept: */*
+
+- Server figures out what the client wants via the URL and other data
+
+* URL
+
+  https://boisestate.edu:443/buster/bronco?current=yes&student=no
+
+  Scheme:       https
+  Port:         443
+  Host:         boisestate.edu
+  Path:         /buster/bronco
+  Query Values: current=yes; student=no
+
+* Request
+
+* Response
+
+* Response Body
+
