@@ -4,7 +4,10 @@
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"net/http"
+)
 
 func hello(name string) string {
 	if name == "" {
@@ -13,7 +16,11 @@ func hello(name string) string {
 	return fmt.Sprintf("Hello %s!", name)
 }
 
+func handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Hello, World!\n")
+}
+
 func main() {
-	var s = "world!"
-	fmt.Println(hello(s))
+	http.HandleFunc("/", handler)
+	http.ListenAndServe(":8080", nil)
 }
