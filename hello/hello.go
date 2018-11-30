@@ -10,6 +10,8 @@ import (
 	"net/http"
 )
 
+// hello returns the famous 'Hello, World!' string replacing world with
+// name.  If name is an empty string, and empty string is returned.
 func hello(name string) string {
 	if name == "" {
 		return ""

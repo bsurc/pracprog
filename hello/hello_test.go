@@ -17,8 +17,16 @@ func TestHello(t *testing.T) {
 			out: "",
 		},
 		{
-			in:  "kyle",
-			out: "Hello, kyle!",
+			in:  "World",
+			out: "Hello, World!",
+		},
+		{
+			in:  "Kyle",
+			out: "Hello, Kyle!",
+		},
+		{
+			in:  "Kyle Shannon",
+			out: "Hello, Kyle Shannon!",
 		},
 	}
 
