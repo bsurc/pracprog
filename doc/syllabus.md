@@ -149,6 +149,7 @@ This section will be updated as the class progresses.
 - [The HTTP Protocol](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)
 - [RESTful APIs](https://en.wikipedia.org/wiki/Representational_state_transfer)
 - [GitHub](https://github.com)
+  - [Practical Programming](https://github.com/bsurc/pracprog/)
 - [Go Programming Language](https://golang.org)
   - [Installation instructions](https://golang.org/doc/install)
 - Microsoft [VS Code](https://code.visualstudio.com/)
