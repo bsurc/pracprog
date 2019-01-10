@@ -4,11 +4,11 @@
 
 - Spring 2019
 - Location: TBD
-- Meeting Time: TBD
+- Meeting Time: Fr 10:00AM - 11:50AM (Jan 14, 2019-Mar 1, 2019)
 - Instructor: Kyle Shannon $Office, <kyleshannon@boisestate.edu>
 - Office Hours: By appointment
 
-This is a living document, the 'live' version is at
+This is a living document, the 'live' version is at:
 <https://github.com/bsurc/pracprog/blob/master/doc/syllabus.md>
 
 ## Coarse Goals & Description
@@ -104,7 +104,7 @@ and be interactive in the course and with each other.
 
 Week 1: Computers, project definition, and our first web server
 
-Week 2: Importing eBird data into a relational database and writing queries
+Week 2: Importing eBird data into a relational database and writing simple queries
 
 Week 3: Defining and writing a web service and documenting our work
 
@@ -131,7 +131,8 @@ Students will need a github account.
 
 For simplicity, we'll all use the same IDE, Microsoft VS Code.  It has plugins
 with varying support for many languages (R, Python, Go, C/C++, etc.), and good
-integration with `git` and github.
+integration with `git` and github.  This isn't required if you are familiar
+with another multi-language IDE that supports Go and `git`.
 
 ##### Extensions
 
