@@ -31,7 +31,9 @@ func TestHello(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		if got, want := hello(test.in), test.out; got != want {
+		got := hello(test.in)
+		want := test.out
+		if got != want {
 			t.Errorf("hello failed, got: '%s', want: '%s'", got, want)
 		}
 	}
