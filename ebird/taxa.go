@@ -14,6 +14,10 @@ import (
 
 // Taxa represents a observation species or bird.  Derived from the eBird
 // taxonomy, see http://www.birds.cornell.edu/clementschecklist/download/
+//
+// This probably won't get used in the pracprog project, but if we run into
+// a case where we do need it, we don't want to deal with the line ending
+// issues.
 type Taxa struct {
 	TaxonOrder        int
 	Category          string
