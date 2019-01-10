@@ -1,0 +1,133 @@
+Hitch Hiker's Guide to Programming
+14 Jan 2019
+
+Kyle Shannon
+Research Computing, Boise State University
+kyleshannon+prpr@boisestate.edu
+http://rcs.boisestate.edu
+
+* Introduction
+
+Who am I?
+
+- Programmer for Research Computing
+- Experience in ANSI C/C++ 98/Go/Python
+- Tiny bits of Java and Lua
+
+* Introduction
+
+What is a computer?
+
+- Simple machine that can add fast
+- Consists of hardware that runs software
+- Processor, Memory, Disks, Network etc.
+
+What is programming?
+
+- Asking a computer to do something many times for you in a special language and dialect
+
+* Hardware
+
+- Computers consist of a hierarchy of speedy things that move bits
+
+- Processor -> series of caches -> memory -> disk/network
+
+* Processor
+
+- Processor can do a limited number of things to series of bits in it's registers
+- MUL, ADD, SUB, DIV, MOD, CMP, etc.
+
+* Memory (RAM)
+
+- Intermediate storage arena for data
+- Your script/program is loaded into memory for execution
+- Data you generate and load from disk will be loaded as well
+
+* Disks
+
+- Long term storage
+- Relatively slow
+- SSDs are much faster than spinning disks
+
+* Network
+
+- Remote storage transferred over the wire
+- Frequently web resources or network mounted storage (disk+network)
+
+* Software
+
+- Our access to the hardware
+
+* Hello World!
+
+.code hello.asm
+
+* Programming Languages
+
+- Fortran, A, B, CPL, BCPL, yada, yada, then C:
+
+.code hello.c
+
+Then more!
+
+Python:
+
+.code hello.py
+
+Yada Yada...
+
+* The Go Programming language
+
+- Similar syntax (we'll use C-like syntax when optional, although it's not always 'right')
+- Good tooling (like this slide show)
+- Real time execution (next slide)
+- Cross platform
+- Concepts we are discussing are language agnostic
+
+Follow along on the playground: http://play.golang.org
+
+* Hello World
+
+In C:
+
+.code hello.c
+
+In Go:
+
+.play -edit hello.go
+
+* Program Structure
+
+- Executables must have a single entry point (usually known as main)
+- Import external modules or declarations
+- Declare your functions
+- Declare your data structures
+- Declare your variables and constants
+- Program!
+
+* Basic and built-in data types
+
+- Integers (8, 16, 32, and 64 bit, unsigned or signed, or arbitrary precision in many interpreted languages)
+- Floating point numbers (32 and 64 bit)
+- Strings (varies by language, usually built in)
+- In C, strings are not built in, but arrays of `char` or bytes
+- many interpreted languages, arbitrary precision is used
+
+* Variables and Constants
+
+* Testing
+
+- Testing can potentially make development faster, as well as finding mistakes
+
+* Documentation
+
+- Relation to comments
+- Tools
+
+* Source Code Management
+
+- Git
+- SVN
+- Mercurial
+- Fossil
+- Github/GitLab/BitBucket

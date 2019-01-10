@@ -15,6 +15,7 @@ kyleshannon@boisestate.edu
   > Accept: */*
 
 - Server figures out what the client wants via the URL and other data
+- Server responds with appropriate status code and data
 
 * URL
 
@@ -27,8 +28,13 @@ kyleshannon@boisestate.edu
   Query Values: current=yes; student=no
 
 * Request
+- Consists of a method, header, URL, and possibly a body/payload
 
 * Response
+- Consists of a header and possibly a body
 
-* Response Body
+* HTTP GET
+.code get.py
+.code get.R
+.play get.go /START/,/END/
 
