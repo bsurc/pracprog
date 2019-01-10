@@ -8,6 +8,7 @@ pdf:
 html:
 	markdown syllabus.md > syllabus.html
 	markdown course_desc.md > course_desc.html
+	markdown design.md > design.html
 
 clean:
 	git clean -f
