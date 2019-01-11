@@ -180,4 +180,4 @@ This section will be updated as the class progresses.
 
 #### Week 8
 
-
+git revision: 
