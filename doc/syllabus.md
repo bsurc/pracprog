@@ -3,10 +3,10 @@
 # BIOL 697 SPECIAL TOPICS: PRACTICAL PROGRAMMING SEMINAR
 
 - Spring 2019
-- Location: TBD
+- Location: ZOOL 501L
 - Meeting Time: Fr 10:00AM - 11:50AM (Jan 14, 2019-Mar 1, 2019)
-- Instructor: Kyle Shannon $Office, <kyleshannon@boisestate.edu>
-- Office Hours: By appointment
+- Instructor: Kyle Shannon <kyleshannon@boisestate.edu>
+- Office Hours: By appointment, Science 100
 
 This is a living document, the 'live' version is at:
 <https://github.com/bsurc/pracprog/blob/master/doc/syllabus.md>
@@ -56,8 +56,8 @@ require using the processes learned in lecture that week.
 
 ## Grading Information
 
-- Assignments: XX%
-- Participation: XX%
+- Assignments: 50%
+- Participation: 50%
 
 ## Course Expectations
 
