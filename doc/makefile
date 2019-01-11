@@ -12,5 +12,5 @@ html:
 	markdown design.md > design.html
 
 clean:
-	git clean -f
+	git clean -f -x
 
