@@ -1,5 +1,6 @@
-Hitch Hiker's Guide to Programming
-XX XXX 2019
+Practical Programming
+Introduction
+18 Jan 2019
 
 Kyle Shannon
 Research Computing, Boise State University
@@ -111,9 +112,18 @@ In Go:
 - Floating point numbers (32 and 64 bit)
 - Strings (varies by language, usually built in)
 - In C, strings are not built in, but arrays of `char` or bytes
-- many interpreted languages, arbitrary precision is used
 
 * Variables and Constants
+
+Variables are values that can change over the lifetime of a program
+
+	var x int
+	x = 1 + 2
+	x = x + 1
+
+Constants are values that never change
+
+	const pi = 3.14159
 
 * Testing
 
@@ -131,3 +141,5 @@ In Go:
 - Mercurial
 - Fossil
 - Github/GitLab/BitBucket
+
+* Let's Try It
