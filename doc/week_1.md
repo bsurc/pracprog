@@ -29,12 +29,12 @@
 
 There are a handful of other extensions that are useful:
 
-- SQLite
-- VS Live Share
-- VS Live Share Extension Pack
-- Excel Viewer
-- Github Issues
-- $YOURFAVORITELANGUAGE
+* SQLite
+* VS Live Share
+* VS Live Share Extension Pack
+* Excel Viewer
+* Github Issues
+* $YOURFAVORITELANGUAGE
 
 To install them:
 
