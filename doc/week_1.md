@@ -24,3 +24,20 @@
 14. Navigate to [http://127.0.0.1:8080](http://127.0.0.1:8080) in a web browser
 
 * On Macs, you'll need to install XCode, and run `xcode-select --install` to run the program
+
+## Other extensions
+
+There are a handful of other extensions that are useful:
+
+- SQLite
+- VS Live Share
+- VS Live Share Extension Pack
+- Excel Viewer
+- Github Issues
+- $YOURFAVORITELANGUAGE
+
+To install them:
+
+1. Click on the square looking button in the sidebar
+2. One at a time search for the extensions, and click install
+3. When they are all installed, click reload on one
