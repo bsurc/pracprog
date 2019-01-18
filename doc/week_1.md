@@ -4,7 +4,7 @@
 
 1. Download and install [Go](https://golang.org/dl/)
 2. Download and install [VS Code](https://code.visualstudio.com/Download)
-3. Download and install [Github Desktop](desktop.github.com)
+3. Download and install [Github Desktop](https://desktop.github.com)
 
 ## Cloning our Repository
 
