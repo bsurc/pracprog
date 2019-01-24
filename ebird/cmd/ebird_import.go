@@ -17,8 +17,7 @@ ebird_import ebird_data.csv output.db
 	with ebird data, and populates a SQLite3 database.  It does
 	not create any indices or any other side effects.  Only
 	CREATE and INSERT SQL commands are issued.  The table is named
-	'ebird'.
-`)
+	'ebird'.`)
 }
 
 func main() {
