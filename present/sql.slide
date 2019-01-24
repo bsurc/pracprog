@@ -79,3 +79,25 @@ kyleshannon@boisestate.edu
 		country TEXT,
 		...
 	);
+
+* Our Data
+- Then insert records
+	CREATE TABLE ebird(
+		?,
+		?,
+		?,
+		?,
+		?,
+		?,
+		?,
+		?,
+		?,
+		?,
+		?,
+		?,
+		?,
+		...
+	);
+
+* Reading a CSV in Go
+.code -edit csv.go /START_OMIT/,/END_OMIT/
