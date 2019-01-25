@@ -44,4 +44,8 @@ func main() {
 
 	fmt.Printf("Does a have the same value as b (%s == %s): %t\n", a, b, a == b)
 	fmt.Printf("Does a have the same value as c (%s == %s): %t\n", a, c, a == c)
+
+	if x > 0 && c == "kyle" {
+		fmt.Println(c, x)
+	}
 }
