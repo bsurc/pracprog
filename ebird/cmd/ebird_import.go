@@ -5,8 +5,10 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"os"
+	"strings"
 )
 
 func help() {
@@ -25,4 +27,26 @@ func main() {
 		help()
 		os.Exit(0)
 	}
+	var fin *os.File
+	var err error
+	fin, err = os.Open(os.Args[1])
+	if err != nil {
+		fmt.Println("failed to open file", err)
+		help()
+		os.Exit(1)
+	}
+	var scn *bufio.Scanner
+	scn = bufio.NewScanner(fin)
+	var hasRow bool
+	var values []string
+	hasRow = scn.Scan()
+	for hasRow == true {
+		hasRow = scn.Scan()
+		if hasRow == false {
+			break
+		}
+		values = strings.Split(scn.Text(), "\t")
+		_ = values
+	}
+
 }
