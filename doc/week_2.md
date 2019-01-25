@@ -1,12 +1,10 @@
 # Week 2
 
-## Installing the SQLite library
+## Installing GCC
 
-1. Open VS Code
-2. Open a new terminal `Terminal->New Terminal`
-3. Type `go get github.com/ksshannon/sqlite-win`
-4. Open Explorer
-5. Copy $HOME/go/src/github.com/ksshannon/sqlite-win/sqlite.a to
-$HOME/go/pkg/windows\_amd64/github.com/ksshannon/sqlite-win (you may have to
-create a directory)
-
+1. Download and install GCC http://sourceforge.net/projects/tdm-gcc/files/TDM-GCC%20Installer/tdm64-gcc-5.1.0-2.exe/download
+2. Go through the installer
+3. Right Click 'My PC'
+4. Click 'Advanced Settings'
+5. Click 'Environment Variables'
+6. Add `PATH=C:/path/to/gcc` to the User variable
