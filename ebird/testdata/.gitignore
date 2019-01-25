@@ -1,0 +1,3 @@
+# unzipped archives have txt and pdf files
+*.pdf
+*.txt

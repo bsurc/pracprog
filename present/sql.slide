@@ -1,0 +1,103 @@
+Databases and SQL
+25 Jan 2019
+
+Kyle Shannon
+Practical Programming
+kyleshannon@boisestate.edu
+
+* Databases
+- Structured file or files that allow _random_ access (with indices)
+- Values are stored in tables as rows with 1 or more columns
+- Tables may reference other tables
+
+* Structured Query Language (SQL)
+- 'Scripting' Language to Create, Read, Update, and Delete (CRUD) data in a database
+
+	CREATE TABLE ebird(species TEXT, date TEXT, longitude FLOAT, latitude FLOAT...);
+	INSERT INTO ebird VALUES('AMKE', '2019-25-01 10:08:31', 116.24053, 43.56704)
+	INSERT INTO ebird VALUES(...)
+	INSERT INTO ebird VALUES(...)
+	SELECT species, date FROM ebird WHERE species='AMKE'; -- slow
+	CREATE INDEX idx_species ON ebird(species);
+	SELECT species, date FROM ebird WHERE species='AMKE'; -- super fast
+
+* Our Project
+- We will CREATE one table, and populate it with ~2.25 million observations (our test data is Idaho Only)
+- We will CREATE indices on columns
+- We will write SELECT statements for useful queries
+- Finally write web handlers for external users
+
+* Our Database Management System: SQLite3
+- Small, Fast, Reliable
+- Probably the most deployed database on the planet
+- Well written, well tested
+- Unlike most systems, it is _not_ client server
+- This has implications when trying to write multiple records at the same time
+- We will populate the database once, and then only read from it, so we're good
+
+* Our Data
+	$ cat ebd_US-ID_prv_relAug-2018.txt | head -1 | sed 's/\t/\n/g'
+	GLOBAL UNIQUE IDENTIFIER
+	LAST EDITED DATE
+	TAXONOMIC ORDER
+	CATEGORY
+	COMMON NAME
+	SCIENTIFIC NAME
+	SUBSPECIES COMMON NAME
+	SUBSPECIES SCIENTIFIC NAME
+	OBSERVATION COUNT
+	BREEDING BIRD ATLAS CODE
+	BREEDING BIRD ATLAS CATEGORY
+	AGE/SEX
+	COUNTRY
+	COUNTRY CODE
+	STATE
+	STATE CODE
+	COUNTY
+	COUNTY CODE
+	IBA CODE
+	...
+
+* Our Data
+
+- One table, columns that match the CSV file
+- There are some optimizations we _could_ make, but we will keep it simple
+
+	CREATE TABLE ebird(
+		global_unique_identifier TEXT NOT NULL,
+		last_edited_date TEXT,
+		taxonomic_order TEXT,
+		category TEXT,
+		common_name TEXT,
+		scientific_name TEXT,
+		subspecies_common_name TEXT,
+		subspecies_scientific_name TEXT,
+		observation_count INTEGER,
+		breeding_bird_atlas_code TEXT,
+		breeding_bird_atlas_category TEXT,
+		age/sex TEXT,
+		country TEXT,
+		...
+	);
+
+* Our Data
+- Then insert records
+	CREATE TABLE ebird(
+		?,
+		?,
+		?,
+		?,
+		?,
+		?,
+		?,
+		?,
+		?,
+		?,
+		?,
+		?,
+		?,
+		...
+	);
+
+* Reading a CSV in Go
+.code -edit csv.go /START_OMIT/,/END_OMIT/
