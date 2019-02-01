@@ -6,10 +6,14 @@ package main
 
 import (
 	"bufio"
+	"database/sql"
 	"fmt"
+	"log"
 	"os"
 	"strconv"
 	"strings"
+
+	_ "github.com/mattn/go-sqlite3"
 )
 
 type Obs struct {
@@ -152,12 +156,44 @@ func main() {
 		help()
 		os.Exit(1)
 	}
+
+	var db *sql.DB
+	db, err = sql.Open("sqlite3", "ebird.db")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	var sql string
+	sql = `CREATE TABLE IF NOT EXISTS test_table (
+		first_name TEXT,
+		last_name TEXT,
+		age INTEGER,
+		height FLOAT
+		)`
+	_, err = db.Exec(sql)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	sql = `INSERT INTO test_table(first_name, last_name, age, height)
+			 VALUES(?,?,?,?)`
+	stmt, err := db.Prepare(sql)
+	fmt.Printf("%T\n", stmt)
+	if err != nil {
+		log.Fatal(err)
+	}
+	_, err = stmt.Exec("kyle", "shannon", 39, 5.75)
+	if err != nil {
+		log.Fatal(err)
+	}
+	stmt.Close()
+
 	var scn *bufio.Scanner
 	scn = bufio.NewScanner(fin)
 	var hasRow bool
 	var values []string
 	hasRow = scn.Scan()
-	var nextObs Obs
+	//var nextObs Obs
 	for hasRow == true {
 		hasRow = scn.Scan()
 		if hasRow == false {
