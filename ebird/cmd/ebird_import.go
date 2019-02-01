@@ -6,6 +6,7 @@ package main
 
 import (
 	"bufio"
+	"compress/gzip"
 	"fmt"
 	"os"
 	"strings"
@@ -35,8 +36,13 @@ func main() {
 		help()
 		os.Exit(1)
 	}
+	var r *gzip.Reader
+	r, err = gzip.NewReader(fin)
+	if err != nil {
+		fmt.Println("failed to decompress file", err)
+	}
 	var scn *bufio.Scanner
-	scn = bufio.NewScanner(fin)
+	scn = bufio.NewScanner(r)
 	var hasRow bool
 	var values []string
 	hasRow = scn.Scan()
