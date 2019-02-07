@@ -185,53 +185,59 @@ func main() {
 	}
 
 	var db *sql.DB
-	db, err = sql.Open("sqlite3", "ebird.db")
+	db, err = sql.Open("sqlite3", os.Args[2])
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	var sql string
-	sql = `CREATE TABLE IF NOT EXISTS test_table (
-		first_name TEXT,
-		last_name TEXT,
-		age INTEGER,
-		height FLOAT
-		)`
-	_, err = db.Exec(sql)
-	if err != nil {
-		log.Fatal(err)
-	}
+	_, err = db.Exec(`CREATE TABLE ebird (
+	guid TEXT, last_edited_date TEXT, taxonomic_order TEXT, category TEXT,
+	common_name TEXT, scientific_name TEXT, subspecies_common_name TEXT,
+	subspecies_scientific_name TEXT, observation_count INTEGER,
+	breeding_bird_atlas_code TEXT, breeding_bird_atlas_category TEXT, age_sex TEXT,
+	country TEXT, country_code TEXT, state TEXT, state_code TEXT, county TEXT,
+	county_code TEXT, iba_code TEXT, bcr_code TEXT, usfws_code TEXT, atlas_block TEXT,
+	locality TEXT, locality_id TEXT, locality_type TEXT, latitude float64,
+	longitude float64, observation_date TEXT, time_observations_started TEXT,
+	observer_id TEXT, sampling_event_identifier TEXT, protocol_type TEXT,
+	protocol_code TEXT, project_code TEXT, duration_minutes INTEGER,
+	effort_distance_km float64, effort_area_ha float64, number_observers INTEGER,
+	all_species_reported INTEGER, group_identifier TEXT, has_media INTEGER,
+	approved INTEGER, reviewed INTEGER, reason TEXT, trip_comments TEXT,
+	species_comments TEXT);`)
 
-	sql = `INSERT INTO test_table(first_name, last_name, age, height)
-			 VALUES(?,?,?,?)`
-	stmt, err := db.Prepare(sql)
 	if err != nil {
 		log.Fatal(err)
 	}
-	_, err = stmt.Exec("kyle", "shannon", 39, 5.75)
+	stmt, err := db.Prepare(`INSERT INTO ebird VALUES(?,?,?,?,?,?,?,?, ?,?,?,?,
+		?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);`)
 	if err != nil {
 		log.Fatal(err)
 	}
-	stmt.Close()
-
+	if err != nil {
+		log.Fatal(err)
+	}
 	var scn *bufio.Scanner
 	scn = bufio.NewScanner(fin)
 	var hasRow bool
 	var values []string
 	hasRow = scn.Scan()
-	//var nextObs Obs
 	for hasRow == true {
 		hasRow = scn.Scan()
 		if hasRow == false {
 			break
 		}
 		values = strings.Split(scn.Text(), "\t")
-		_, err := decodeObs(values)
+		_, err = stmt.Exec(values[0], values[1], values[2], values[3], values[4],
+			values[5], values[6], values[7], values[8], values[9], values[10], values[11],
+			values[12], values[13], values[14], values[15], values[16], values[17], values[18],
+			values[19], values[20], values[21], values[22], values[23], values[24], values[25],
+			values[26], values[27], values[28], values[29], values[30], values[31], values[32],
+			values[33], values[34], values[35], values[36], values[37], values[38], values[39],
+			values[40], values[41], values[42], values[43], values[44], values[45],
+		)
 		if err != nil {
-			for i, v := range values {
-				fmt.Printf("%d -> %s\n", i, v)
-			}
-			log.Fatal(err, values)
+			log.Fatal(err)
 		}
 	}
 }
