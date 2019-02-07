@@ -18,48 +18,16 @@ func TestDecodeObs(t *testing.T) {
 	var got Obs
 	var want Obs
 	want.GlobalUniqueIdentifier = "URN:CornellLabOfOrnithology:EBIRD:OBS67812684"
+	want.County = "Ada"
+	want.Latitude = 43.49179
 	var vals []string
 	vals = []string{
-		"URN:CornellLabOfOrnithology:EBIRD:OBS67812684", // 0
-		"2013-05-16 16:17:25.0",
-		"1513",
-		"species",
-		"Gray Partridge",
-		"Perdix perdix", // 5
-		"",
-		"",
-		"X",
-		"",
-		"", // 10
-		"",
-		"United States",
-		"US",
-		"Idaho",
-		"US-ID", // 15
-		"Ada",
-		"US-ID-001",
-		"",
-		"9",
-		"", // 20
-		"",
-		"Kuna",
-		"L191852",
-		"T",
-		"43.49179", // 25
-		"-116.41996",
-		"1969-02-01",
-		"",
-		"obsr180108",
-		"S4840007", // 30
-		"Incidental",
-		"P20",
-		"EBIRD",
-		"",
-		"",
-		"",
-		"",
-		"0",
-		"", "0", "1", "0",
+		"URN:CornellLabOfOrnithology:EBIRD:OBS67812684", "2013-05-16 16:17:25.0",
+		"1513", "species", "Gray Partridge", "Perdix perdix", "", "", "X", "",
+		"", "", "United States", "US", "Idaho", "US-ID", "Ada", "US-ID-001", "",
+		"9", "", "", "Kuna", "L191852", "T", "43.49179", "-116.41996",
+		"1969-02-01", "", "obsr180108", "S4840007", "Incidental", "P20", "EBIRD",
+		"", "", "", "", "0", "", "0", "1", "0", "", "", "", "",
 	}
 
 	var err error
@@ -69,5 +37,11 @@ func TestDecodeObs(t *testing.T) {
 	}
 	if got.GlobalUniqueIdentifier != want.GlobalUniqueIdentifier {
 		t.Errorf("decoding failed, got: %s, want: %s", got.GlobalUniqueIdentifier, want.GlobalUniqueIdentifier)
+	}
+	if got.Latitude != want.Latitude {
+		t.Errorf("got: %f, want: %f", got.Latitude, want.Latitude)
+	}
+	if got.County != want.County {
+		t.Errorf("got: %s, want: %s", got.County, want.County)
 	}
 }
