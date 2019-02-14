@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"log"
+	"math"
 	"os"
 	"strconv"
 )
@@ -24,12 +25,12 @@ func main() {
 		data = append(data, x)
 	}
 
-	var avg float64
+	var mean float64
 	for _, x := range data {
-		avg = avg + x
+		mean = mean + x
 	}
-	avg = avg / float64(len(data))
-	fmt.Printf("Average: %.3f\n", avg)
+	mean = mean / float64(len(data))
+	fmt.Printf("Average: %.3f\n", mean)
 
 	var max float64
 	for _, x := range data {
@@ -62,5 +63,25 @@ func main() {
 	}
 	fmt.Printf("Mode: %.3f (%d)\n", key, val)
 
-	// Median
+	sorted := make([]float64, len(data))
+	copy(sorted, data)
+	// Insertion sort from https://en.wikipedia.org/wiki/Insertion_sort
+	i := 1
+	for i < len(sorted) {
+		j := i
+		for j > 0 && sorted[j-1] > sorted[j] {
+			sorted[j], sorted[j-1] = sorted[j-1], sorted[j]
+			j--
+		}
+		i++
+	}
+	fmt.Printf("Median: %.3f\n", sorted[len(sorted)/2])
+
+	var stdev float64
+	for _, x := range data {
+		stdev += (x - mean) * (x - mean)
+	}
+	stdev /= float64(len(data) - 1)
+	stdev = math.Sqrt(stdev)
+	fmt.Printf("Std Dev: %.3f\n", stdev)
 }
