@@ -17,17 +17,17 @@ func TestMode(t *testing.T) {
 func TestMedian(t *testing.T) {
 }
 
-func BenchmarkMean(t *testing.T) {
+func BenchmarkMean(b *testing.B) {
 }
 
-func BenchmarkMax(t *testing.T) {
+func BenchmarkMax(b *testing.B) {
 }
 
-func BenchmarkMin(t *testing.T) {
+func BenchmarkMin(b *testing.B) {
 }
 
-func BenchmarkMode(t *testing.T) {
+func BenchmarkMode(b *testing.B) {
 }
 
-func BenchmarkMedian(t *testing.T) {
+func BenchmarkMedian(b *testing.B) {
 }

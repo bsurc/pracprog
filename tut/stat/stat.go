@@ -30,7 +30,7 @@ func main() {
 		mean = mean + x
 	}
 	mean = mean / float64(len(data))
-	fmt.Printf("Average: %.3f\n", mean)
+	fmt.Printf("Mean: %.3f\n", mean)
 
 	var max float64
 	for _, x := range data {
@@ -51,7 +51,7 @@ func main() {
 
 	var hist = map[float64]int{}
 	for _, x := range data {
-		hist[x] += 1
+		hist[x]++
 	}
 	var key float64
 	var val int
