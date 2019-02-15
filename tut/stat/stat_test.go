@@ -3,9 +3,28 @@ package main
 import "testing"
 
 func TestMean(t *testing.T) {
+	var st Stats
+	st.Add(4, 8)
+	var got float64
+	var want float64
+	got = st.Mean()
+	want = 6.0
+	if got != want {
+		t.Errorf("got: %f, want: %f", got, want)
+	}
 }
 
 func TestMax(t *testing.T) {
+	var st Stats
+	st.Add(2, 3, 33, 5, 67, 8, 10, 12, 15)
+	var got float64
+	var want float64
+	got = st.Max()
+	want = 67
+	if got != want {
+		t.Errorf("got: %f, want: %f", got, want)
+	}
+
 }
 
 func TestMin(t *testing.T) {

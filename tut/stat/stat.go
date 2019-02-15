@@ -10,9 +10,36 @@ import (
 )
 
 type Stats struct {
-	// TODO(kyle): Define
+	data []float64
 }
 
+func (s *Stats) Add(x ...float64) {
+	s.data = append(s.data, x...)
+}
+func (s *Stats) Mean() float64 {
+	var x float64
+	x = 0
+	var i int
+	for i = 0; i < len(s.data); i++ {
+		x = x + s.data[i]
+	}
+
+	x = x / float64(len(s.data))
+	return x
+}
+
+func (s *Stats) Max() float64 {
+	var max float64
+	max = 0
+	var i int
+	for i = 0; i < len(s.data); i++ {
+		if s.data[i] > max {
+			max = s.data[i]
+		}
+	}
+
+	return max
+}
 func main() {
 	fin, err := os.Open("CFSB.csv")
 	if err != nil {
