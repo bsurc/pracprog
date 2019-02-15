@@ -53,7 +53,6 @@ func (s *Stats) Stan() float64 {
 func (s *Stats) Sort() []float64 {
 	sorted := make([]float64, len(s.data))
 	copy(sorted, s.data)
-	// Insertion sort from https://en.wikipedia.org/wiki/Insertion_sort
 	i := 1
 	for i < len(sorted) {
 		j := i

@@ -76,6 +76,18 @@ func TestStan(t *testing.T) {
 }
 
 func TestSort(t *testing.T) {
+	var st Stats
+	var s []float64
+	st.Add(7, 3, 9)
+	s = st.Sort()
+	//  s = []float64{9, 3, 7}  // manual test case to test the test function
+	i := 0
+	for i < len(s)-1 {
+		if s[i] > s[i+1] {
+			t.Errorf("%f is higher than %f and thus not sorted correctly", s[i], s[i+1])
+		}
+		i++
+	}
 }
 
 func TestMode(t *testing.T) {
