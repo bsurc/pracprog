@@ -1,6 +1,31 @@
 package main
 
-import "testing"
+import (
+	"bufio"
+	"math"
+	"os"
+	"strconv"
+	"testing"
+)
+
+// cfsbData loads the Chocolate Frosted Sugar Bomb data into a Stats struct
+func cfsbData(tb testing.TB) *Stats {
+	fin, err := os.Open("CFSB.csv") //reading in data set
+	if err != nil {
+		tb.Fatal(err)
+	}
+	defer fin.Close()
+	var st Stats
+	s := bufio.NewScanner(fin)
+	for s.Scan() {
+		x, err := strconv.ParseFloat(s.Text(), 64)
+		if err != nil {
+			tb.Fatal(err)
+		}
+		st.Add(x)
+	}
+	return &st
+}
 
 func TestMean(t *testing.T) {
 	var st Stats
@@ -24,6 +49,7 @@ func TestMax(t *testing.T) {
 	if got != want {
 		t.Errorf("got: %f, want: %f", got, want)
 	}
+}
 
 func TestMin(t *testing.T) {
 	var st Stats
@@ -37,7 +63,19 @@ func TestMin(t *testing.T) {
 	}
 }
 
-func TestMax(t *testing.T) {
+func TestStan(t *testing.T) {
+	var st Stats
+	st.Add(4, 8, 10)
+	var got float64
+	var want float64
+	got = st.Stan()
+	want = 2.494438258
+	if math.Abs(got-want) > 0.0001 {
+		t.Errorf("got: %f, want: %f", got, want)
+	}
+}
+
+func TestSort(t *testing.T) {
 }
 
 func TestMode(t *testing.T) {
@@ -46,7 +84,13 @@ func TestMode(t *testing.T) {
 func TestMedian(t *testing.T) {
 }
 
+var sink float64
+
 func BenchmarkMean(b *testing.B) {
+	st := cfsbData(b)
+	for i := 0; i < b.N; i++ {
+		sink = st.Mean()
+	}
 }
 
 func BenchmarkMax(b *testing.B) {
@@ -59,4 +103,7 @@ func BenchmarkMode(b *testing.B) {
 }
 
 func BenchmarkMedian(b *testing.B) {
+}
+
+func BenchmarkSort(b *testing.B) {
 }

@@ -1,12 +1,7 @@
 package main
 
 import (
-	"bufio"
-	"fmt"
-	"log"
 	"math"
-	"os"
-	"strconv"
 )
 
 type Stats struct {
@@ -18,19 +13,15 @@ func (s *Stats) Add(x ...float64) { //append
 }
 
 func (s *Stats) Mean() float64 {
-	var x float64
-	x = 0
-	var i int
-	for i = 0; i < len(s.data); i++ {
-		x = x + s.data[i]
+	mean := 0.0
+	for _, x := range s.data {
+		mean += x
 	}
-	x = x / float64(len(s.data)) //has to divide float by float, not float by integer
-	return x
+	return mean / float64(len(s.data)) //has to divide float by float, not float by integer
 }
 
 func (s *Stats) Min() float64 {
-	var min float64
-	min = 1e100
+	min := math.MaxFloat64
 	for _, x := range s.data {
 		if x < min {
 			min = x
@@ -39,102 +30,29 @@ func (s *Stats) Min() float64 {
 	return min
 }
 
-func (s *Stats) Add(x ...float64) {
-	s.data = append(s.data, x...)
-}
-
-func (s *Stats) Mean() float64 {
-	var x float64
-	x = 0
-	var i int
-	for i = 0; i < len(s.data); i++ {
-		x = x + s.data[i]
-	}
-	x = x / float64(len(s.data))
-	return x
-}
-
 func (s *Stats) Max() float64 {
-	var max float64
-	max = 0
-	var i int
-	for i = 0; i < len(s.data); i++ {
-		if s.data[i] > max {
-			max = s.data[i]
-		}
-	}
-
-	return max
-}
-
-func (s *Stats) Min() float64 {
-	var max float64
-	max = 0
-	var i int
-	for i = 0; i < len(s.data); i++ {
-		if s.data[i] > max {
-			max = s.data[i]
-		}
-	}
-
-	return max
-}
-func main() {
-	fin, err := os.Open("CFSB.csv") //reading in data set
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer fin.Close()
-	s := bufio.NewScanner(fin)
-	var data []float64
-	for s.Scan() {
-		x, err := strconv.ParseFloat(s.Text(), 64)
-		if err != nil {
-			log.Fatal(err)
-		}
-		data = append(data, x)
-	}
-
-	var mean float64 //calcs stats
-	for _, x := range data {
-		mean = mean + x
-	}
-	mean = mean / float64(len(data))
-	fmt.Printf("Mean: %.3f\n", mean)
-
-	var max float64
-	for _, x := range data {
+	max := -math.MaxFloat64
+	for _, x := range s.data {
 		if x > max {
 			max = x
 		}
 	}
-	fmt.Printf("Max: %.3f\n", max)
+	return max
+}
 
-	var min float64
-	min = max + 1
-	for _, x := range data {
-		if x < min {
-			min = x
-		}
+func (s *Stats) Stan() float64 {
+	stdev := 0.0
+	for _, x := range s.data {
+		stdev += (x - s.Mean()) * (x - s.Mean())
 	}
-	fmt.Printf("Min: %.3f\n", min)
+	stdev = stdev / float64(len(s.data))
+	stdev = math.Sqrt(stdev)
+	return stdev
+}
 
-	var hist = map[float64]int{}
-	for _, x := range data {
-		hist[x]++
-	}
-	var key float64
-	var val int
-	for k, v := range hist {
-		if v > val {
-			val = v
-			key = k
-		}
-	}
-	fmt.Printf("Mode: %.3f (%d)\n", key, val)
-
-	sorted := make([]float64, len(data))
-	copy(sorted, data)
+func (s *Stats) Sort() []float64 {
+	sorted := make([]float64, len(s.data))
+	copy(sorted, s.data)
 	// Insertion sort from https://en.wikipedia.org/wiki/Insertion_sort
 	i := 1
 	for i < len(sorted) {
@@ -145,13 +63,8 @@ func main() {
 		}
 		i++
 	}
-	fmt.Printf("Median: %.3f\n", sorted[len(sorted)/2])
+	return sorted
+}
 
-	var stdev float64
-	for _, x := range data {
-		stdev += (x - mean) * (x - mean)
-	}
-	stdev /= float64(len(data) - 1)
-	stdev = math.Sqrt(stdev)
-	fmt.Printf("Std Dev: %.3f\n", stdev)
+func main() {
 }
