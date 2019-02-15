@@ -11,24 +11,6 @@ import (
 
 type Stats struct {
 	data []float64
-<<<<<<< HEAD
-=======
-}
-
-func (s *Stats) Add(x ...float64) {
-	s.data = append(s.data, x...)
-}
-
-func (s *Stats) Mean() float64 {
-	var x float64
-	x = 0
-	var i int
-	for i = 0; i < len(s.data); i++ {
-		x = x + s.data[i]
-	}
-	x = x / float64(len(s.data))
-	return x
->>>>>>> 0f9b86ae1a2b000d67c9ba77109ccad2af6711d5
 }
 
 func (s *Stats) Add(x ...float64) {
