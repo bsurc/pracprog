@@ -11,8 +11,33 @@ import (
 
 type Stats struct {
 	data []float64
-<<<<<<< HEAD
-=======
+	// TODO(kyle): Define , keep data hidden, hide internals and define clean,least surprising, no modifying function
+}
+
+func (s *Stats) Add(x ...float64) { //append
+	s.data = append(s.data, x...)
+}
+
+func (s *Stats) Mean() float64 {
+	var x float64
+	x = 0
+	var i int
+	for i = 0; i < len(s.data); i++ {
+		x = x + s.data[i]
+	}
+	x = x / float64(len(s.data)) //has to divide float by float, not float by integer
+	return x
+}
+
+func (s *Stats) Min() float64 {
+	var min float64
+	min = 1e100
+	for _, x := range s.data {
+		if x < min {
+			min = x
+		}
+	}
+	return min
 }
 
 func (s *Stats) Add(x ...float64) {
@@ -28,7 +53,6 @@ func (s *Stats) Mean() float64 {
 	}
 	x = x / float64(len(s.data))
 	return x
->>>>>>> 0f9b86ae1a2b000d67c9ba77109ccad2af6711d5
 }
 
 func (s *Stats) Add(x ...float64) {
@@ -59,7 +83,7 @@ func (s *Stats) Max() float64 {
 	return max
 }
 func main() {
-	fin, err := os.Open("CFSB.csv")
+	fin, err := os.Open("CFSB.csv") //reading in data set
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -74,7 +98,7 @@ func main() {
 		data = append(data, x)
 	}
 
-	var mean float64
+	var mean float64 //calcs stats
 	for _, x := range data {
 		mean = mean + x
 	}

@@ -25,9 +25,19 @@ func TestMax(t *testing.T) {
 		t.Errorf("got: %f, want: %f", got, want)
 	}
 
+func TestMin(t *testing.T) {
+	var st Stats
+	st.Add(1, 4, 5, 7, 8, 3) //this gives a test dataset, using st.Min accesses this function inside of the test, leading to an error
+	var got float64
+	var want float64
+	got = st.Min()
+	want = 1.0
+	if got != want {
+		t.Errorf("got: %f, want: %f", got, want)
+	}
 }
 
-func TestMin(t *testing.T) {
+func TestMax(t *testing.T) {
 }
 
 func TestMode(t *testing.T) {
