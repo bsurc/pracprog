@@ -111,11 +111,14 @@ func BenchmarkMax(b *testing.B) {
 func BenchmarkMin(b *testing.B) {
 }
 
+func BenchmarkStan(b *testing.B) {
+}
+
+func BenchmarkSort(b *testing.B) {
+}
+
 func BenchmarkMode(b *testing.B) {
 }
 
 func BenchmarkMedian(b *testing.B) {
-}
-
-func BenchmarkSort(b *testing.B) {
 }
