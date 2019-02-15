@@ -9,6 +9,10 @@ import (
 	"strconv"
 )
 
+type Stats struct {
+	// TODO(kyle): Define
+}
+
 func main() {
 	fin, err := os.Open("CFSB.csv")
 	if err != nil {
