@@ -11,7 +11,6 @@ import (
 
 type Stats struct {
 	data []float64
-	// TODO(kyle): Define , keep data hidden, hide internals and define clean,least surprising, no modifying function
 }
 
 func (s *Stats) Add(x ...float64) { //append
@@ -55,22 +54,20 @@ func (s *Stats) Mean() float64 {
 	return x
 }
 
-func (s *Stats) Add(x ...float64) {
-	s.data = append(s.data, x...)
-}
-func (s *Stats) Mean() float64 {
-	var x float64
-	x = 0
+func (s *Stats) Max() float64 {
+	var max float64
+	max = 0
 	var i int
 	for i = 0; i < len(s.data); i++ {
-		x = x + s.data[i]
+		if s.data[i] > max {
+			max = s.data[i]
+		}
 	}
 
-	x = x / float64(len(s.data))
-	return x
+	return max
 }
 
-func (s *Stats) Max() float64 {
+func (s *Stats) Min() float64 {
 	var max float64
 	max = 0
 	var i int
