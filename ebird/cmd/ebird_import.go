@@ -17,52 +17,52 @@ import (
 )
 
 type Obs struct {
-	GlobalUniqueIdentifier    string
-	LastEditedDate            string
-	TaxonomicOrder            string
-	Category                  string
-	CommonName                string
-	ScientificName            string
-	SubspeciesCommonName      string
-	SubspeciesScientificName  string
-	ObservationCount          int
-	BreedingBirdAtlasCode     string
-	BreedingBirdAtlasCategory string
-	AgeSex                    string
-	Country                   string
-	CountryCode               string
-	State                     string
-	StateCode                 string
-	County                    string
-	CountyCode                string
-	IBACode                   string
-	BCRCode                   string
-	USFWSCode                 string
-	AtlasBlock                string
-	Locality                  string
-	LocalityID                string
-	LocalityType              string
-	Latitude                  float64
-	Longitude                 float64
-	ObservationDate           string
-	TimeObservationsStarted   string
-	ObserverID                string
-	SamplingEventIdentifier   string
-	ProtocolType              string
-	ProtocolCode              string
-	ProjectCode               string
-	DurationMinutes           int
-	EffortDistanceKM          float64
-	EffortAreaHA              float64
-	NumberObservers           int
-	AllSpeciesReported        bool
-	GroupIdentifier           string
-	HasMedia                  bool
-	Approved                  bool
-	Reviewed                  bool
-	Reason                    string
-	TripComments              string
-	SpeciesComments           string
+	GlobalUniqueIdentifier    string  `json:"global_unique_identifier"`
+	LastEditedDate            string  `json:"last_edited_date"`
+	TaxonomicOrder            string  `json:"taxonomic_order"`
+	Category                  string  `json:"category"`
+	CommonName                string  `json:"common_name"`
+	ScientificName            string  `json:"scientific_name"`
+	SubspeciesCommonName      string  `json:"subspecies_common_name"`
+	SubspeciesScientificName  string  `json:"subspecies_scientific_name"`
+	ObservationCount          int     `json:"observation_count"`
+	BreedingBirdAtlasCode     string  `json:"breeding_bird_atlas_code"`
+	BreedingBirdAtlasCategory string  `json:"breeding_bird_atlas_category"`
+	AgeSex                    string  `json:"age_sex"`
+	Country                   string  `json:"country"`
+	CountryCode               string  `json:"country_code"`
+	State                     string  `json:"state"`
+	StateCode                 string  `json:"state_code"`
+	County                    string  `json:"county"`
+	CountyCode                string  `json:"county_code"`
+	IBACode                   string  `json:"iba_code"`
+	BCRCode                   string  `json:"bcr_code"`
+	USFWSCode                 string  `json:"usfws_code"`
+	AtlasBlock                string  `json:"atlas_block"`
+	Locality                  string  `json:"locality"`
+	LocalityID                string  `json:"locality_id"`
+	LocalityType              string  `json:"locality_type"`
+	Latitude                  float64 `json:"latitude"`
+	Longitude                 float64 `json:"longitude"`
+	ObservationDate           string  `json:"observation_date"`
+	TimeObservationsStarted   string  `json:"time_observations_started"`
+	ObserverID                string  `json:"observer_id"`
+	SamplingEventIdentifier   string  `json:"sampling_event_identifier"`
+	ProtocolType              string  `json:"protocol_type"`
+	ProtocolCode              string  `json:"protocol_code"`
+	ProjectCode               string  `json:"project_code"`
+	DurationMinutes           int     `json:"duration_minutes"`
+	EffortDistanceKM          float64 `json:"effort_distance_km"`
+	EffortAreaHA              float64 `json:"effort_area_ha"`
+	NumberObservers           int     `json:"number_observers"`
+	AllSpeciesReported        bool    `json:"all_species_reported"`
+	GroupIdentifier           string  `json:"group_identifier"`
+	HasMedia                  bool    `json:"has_media"`
+	Approved                  bool    `json:"approved"`
+	Reviewed                  bool    `json:"reviewed"`
+	Reason                    string  `json:"reason"`
+	TripComments              string  `json:"trip_comments"`
+	SpeciesComments           string  `json:"species_comments"`
 }
 
 func decodeObs(vals []string) (Obs, error) {
@@ -222,6 +222,8 @@ func main() {
 	var hasRow bool
 	var values []string
 	hasRow = scn.Scan()
+	db.Exec(`BEGIN;`)
+	i := 0
 	for hasRow == true {
 		hasRow = scn.Scan()
 		if hasRow == false {
@@ -239,5 +241,10 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
+		i++
+		if i%1000 == 0 {
+			fmt.Printf("\rprocessed %d records...", i)
+		}
 	}
+	db.Exec(`COMMIT;`)
 }
