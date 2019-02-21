@@ -7,12 +7,10 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"sort"
 	"strconv"
 	"text/tabwriter"
 	"time"
 
-	"github.com/bsurc/pracprog/ebird"
 	_ "github.com/mattn/go-sqlite3"
 )
 
@@ -74,17 +72,12 @@ func obsHandler(w http.ResponseWriter, r *http.Request) {
 		WHERE county_code='US-ID-037' AND species_comments!=''
 		ORDER BY RANDOM() LIMIT 1`)
 	var obs Obs
-	var count string
-	err := row.Scan(&obs.CommonName, &obs.AgeSex, &count, &obs.Locality, &obs.Longitude,
-		&obs.Latitude, &obs.ObservationDate, &obs.SpeciesComments)
+	err := row.Scan(&obs.CommonName, &obs.AgeSex, &obs.ObservationCount,
+		&obs.Locality, &obs.Longitude, &obs.Latitude, &obs.ObservationDate,
+		&obs.SpeciesComments)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
-	}
-	if count == "X" || count == "" {
-		obs.ObservationCount = -1
-	} else {
-		obs.ObservationCount, _ = strconv.Atoi(count)
 	}
 	w.Header().Set("Content-Type", "application/json")
 	err = json.NewEncoder(w).Encode(obs)
@@ -99,12 +92,6 @@ func speciesHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "request URI must have a spp query parameter", http.StatusBadRequest)
 		return
 	}
-	t, ok := taxa[spp]
-	if !ok {
-		http.Error(w, fmt.Sprintf("invalid spp: %s", spp), http.StatusBadRequest)
-		return
-	}
-
 	start := r.FormValue("start")
 	_, err := time.Parse("2006-01-02", start)
 	if err != nil || start == "" {
@@ -121,10 +108,10 @@ func speciesHandler(w http.ResponseWriter, r *http.Request) {
 	rows, err := db.Query(`
 	SELECT common_name, age_sex, observation_count, locality, longitude, latitude,
 		observation_date, time_observations_started, species_comments
-		FROM ebird
-		WHERE common_name=? AND observation_date>? AND observation_date<?
+		FROM ebird JOIN taxa ON common_name=primary_common_name
+		WHERE species_code=? AND observation_date>? AND observation_date<?
 		GROUP BY group_identifier
-		ORDER BY observation_date`, t.PrimaryCommonName, start, end)
+		ORDER BY observation_date`, spp, start, end)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -160,32 +147,31 @@ func codeHandler(w http.ResponseWriter, r *http.Request) {
 	tw := &tabwriter.Writer{}
 	tw.Init(w, 0, 8, 0, '\t', 0)
 	fmt.Fprintf(tw, "%s\t%s\t%s\t%s\n", "category", "code", "common", "sci")
-	for _, k := range taxaKeys {
-		fmt.Fprintf(tw, "%s\t%s\t%s\t%s\n",
-			taxa[k].Category,
-			taxa[k].SpeciesCode,
-			taxa[k].PrimaryCommonName,
-			taxa[k].SciName,
-		)
+	rows, err := db.Query(`SELECT category, species_code, primary_common_name, scientific_name
+		FROM taxa ORDER BY species_code`)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	var (
+		cat  string
+		code string
+		comm string
+		sci  string
+	)
+	for rows.Next() {
+		err = rows.Scan(&cat, &code, &comm, &sci)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		fmt.Fprintf(tw, "%s\t%s\t%s\t%s\n", cat, code, comm, sci)
 	}
 	tw.Flush()
-	/*
-		TaxonOrder        int
-		Category          string
-		SpeciesCode       string
-		PrimaryCommonName string
-		SciName           string
-		Order             string
-		Family            string
-		SpeciesGroup      string
-		ReportAs          string
-	*/
 }
 
 var (
-	db       *sql.DB
-	taxa     map[string]ebird.Taxa
-	taxaKeys []string
+	db *sql.DB
 )
 
 const addr = ":8888"
@@ -196,19 +182,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	fin, err := os.Open("../taxa.csv")
-	if err != nil {
-		log.Fatal(err)
-	}
-	taxa, err = ebird.LoadTaxa(fin)
-	if err != nil {
-		log.Fatal(err)
-	}
-	for k := range taxa {
-		taxaKeys = append(taxaKeys, k)
-	}
-	sort.Strings(taxaKeys)
 
 	mux := &http.ServeMux{}
 	mux.HandleFunc("/", obsHandler)
