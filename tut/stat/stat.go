@@ -4,20 +4,36 @@ import (
 	"math"
 )
 
+const (
+	flagMin   = 1 << 0
+	flagMax   = 1 << 1
+	flagStan  = 1 << 2
+	flagMean  = 1 << 3
+	flagClean = flagMin | flagMax | flagStan | flagMean
+)
+
 type Stats struct {
-	data []float64
+	data                 []float64
+	min, max, stan, mean float64
+	clean                uint8
 }
 
 func (s *Stats) Add(x ...float64) { //append
 	s.data = append(s.data, x...)
+	s.clean = 0
 }
 
 func (s *Stats) Mean() float64 {
+	if s.clean&flagMean > 0 {
+		return s.mean
+	}
 	mean := 0.0
 	for _, x := range s.data {
 		mean += x
 	}
-	return mean / float64(len(s.data)) //has to divide float by float, not float by integer
+	s.mean = mean / float64(len(s.data))
+	s.clean = s.clean | flagMean
+	return s.mean
 }
 
 func (s *Stats) Min() float64 {
@@ -42,8 +58,9 @@ func (s *Stats) Max() float64 {
 
 func (s *Stats) Stan() float64 {
 	stdev := 0.0
+	mean := s.Mean()
 	for _, x := range s.data {
-		stdev += (x - s.Mean()) * (x - s.Mean())
+		stdev += (x - mean) * (x - mean)
 	}
 	stdev = stdev / float64(len(s.data))
 	stdev = math.Sqrt(stdev)
