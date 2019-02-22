@@ -15,3 +15,8 @@ citation for the bulk download is:
 	Cornell Lab of Ornithology, Ithaca, New York. May 2017.
 
 For other citations, see: https://ebird.org/science/citation
+
+### Escaping quotes
+
+Unix: `sed 's/\"/\\\"/g`
+Windows(?): `get-content somefile.txt | %{$_ -replace "expression","replace"}`
