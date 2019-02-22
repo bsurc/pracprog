@@ -18,5 +18,5 @@ For other citations, see: https://ebird.org/science/citation
 
 ### Escaping quotes
 
-Unix: `sed 's/\"/\\\"/g`
-Windows(?): `get-content somefile.txt | %{$_ -replace "expression","replace"}`
+- Unix: `sed 's/\"/\\\"/g`
+- Windows(?): `get-content somefile.txt | %{$_ -replace "expression","replace"}`
