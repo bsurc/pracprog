@@ -38,12 +38,9 @@ func speciesHandler(w http.ResponseWriter, r *http.Request) {
 	var mbr [4]float64
 	for i, x := range []string{"minx", "maxx", "miny", "maxy"} {
 		v := r.FormValue(x)
-		if v == "" {
-			continue
-		}
 		mbr[i], err = strconv.ParseFloat(v, 64)
 		if err != nil {
-			http.Error(w, fmt.Sprintf("invalid coordinate for %s: %s", x, v), http.StatusBadRequest)
+			http.Error(w, fmt.Sprintf("invalid coordinate for %s: '%s'", x, v), http.StatusBadRequest)
 			return
 		}
 	}
