@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"crypto/tls"
 	"encoding/json"
 	"flag"
 	"fmt"
@@ -12,6 +13,7 @@ import (
 
 	"crawshaw.io/sqlite"
 	"crawshaw.io/sqlite/sqlitex"
+	"golang.org/x/crypto/acme/autocert"
 )
 
 func obsHandler(w http.ResponseWriter, r *http.Request) {
@@ -46,6 +48,7 @@ func speciesHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	c := pool.Get(context.Background())
 	defer pool.Put(c)
+	var stmt *sqlite.Stmt
 	stmt := c.Prep(`SELECT
 		common_name,
 		age_sex,
@@ -138,9 +141,29 @@ func main() {
 	mux := &http.ServeMux{}
 	mux.HandleFunc("/obs", obsHandler)
 	mux.HandleFunc("/species", speciesHandler)
-	go func() {
-		fmt.Println("open your browser to http://127.0.0.1" + *flagAddr)
-	}()
 	uptime = time.Now()
-	log.Fatal(http.ListenAndServe(*flagAddr, mux))
+	srv := &http.Server{
+		Addr:         *flagAddr,
+		ReadTimeout:  5 * time.Second,
+		WriteTimeout: 10 * time.Second,
+		IdleTimeout:  120 * time.Second,
+		Handler:      mux,
+	}
+	if *flagAddr == ":443" || *flagAddr == ":https" {
+		m := &autocert.Manager{
+			Cache:      autocert.DirCache("/opt/acme/"),
+			Prompt:     autocert.AcceptTOS,
+			HostPolicy: autocert.HostWhitelist("wright-lxt-01.boisestate.edu"),
+		}
+		go func() {
+			log.Fatal(http.ListenAndServe(":http", m.HTTPHandler(nil)))
+		}()
+		srv.TLSConfig = &tls.Config{GetCertificate: m.GetCertificate}
+		log.Fatal(srv.ListenAndServeTLS(*flagAddr, ""))
+	} else {
+		go func() {
+			fmt.Println("open your browser to http://127.0.0.1" + *flagAddr)
+		}()
+		log.Fatal(srv.ListenAndServe())
+	}
 }
