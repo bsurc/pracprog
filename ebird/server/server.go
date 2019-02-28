@@ -48,7 +48,6 @@ func speciesHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	c := pool.Get(context.Background())
 	defer pool.Put(c)
-	var stmt *sqlite.Stmt
 	stmt := c.Prep(`SELECT
 		common_name,
 		age_sex,
